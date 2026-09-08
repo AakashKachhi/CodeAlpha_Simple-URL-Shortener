@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <p class="eyebrow">SIMPLE URL SHORTENER</p>
+      <h1>Make your URL shorter.</h1>
+      <p class="subtitle">Create a short link or use a short code to open its original URL.</p>
+
+      <div class="section">
+        <h2>Create Short URL</h2>
+        <form id="urlForm">
+          <label for="originalUrl">Long URL</label>
+          <div class="input-row">
+            <input id="originalUrl" name="originalUrl" type="url"
+              placeholder="https://example.com/your-long-url" autocomplete="url" required>
+            <button type="submit" id="shortenBtn">Shorten URL</button>
+          </div>
+        </form>
+
+        <p id="message" class="message" aria-live="polite"></p>
+
+        <div id="result" class="result hidden">
+          <div class="result-item">
+            <span>Your short URL</span>
+            <div class="result-row">
+              <a id="shortUrl" href="#" target="_blank" rel="noopener noreferrer"></a>
+              <button type="button" id="copyUrlBtn" class="secondary">Copy</button>
+            </div>
+          </div>
+
+          <div class="result-item">
+            <span>Short Code</span>
+            <div class="result-row">
+              <input id="generatedShortCode" type="text" readonly>
+              <button type="button" id="copyCodeBtn" class="secondary">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>Open with Short Code</h2>
+        <p class="section-text">Enter the short code from your generated URL.</p>
+        <form id="redirectForm">
+          <label for="shortCode">Short Code</label>
+          <div class="input-row">
+            <input id="shortCode" name="shortCode" type="text"
+              placeholder="e.g. 3l_YsY" autocomplete="off" required>
+            <button type="submit">Go to URL</button>
+          </div>
+        </form>
+        <p id="redirectMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>

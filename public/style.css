@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #17202a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 760px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e3e7eb;
+  border-radius: 18px;
+  padding: 42px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 14px 0 32px;
+  color: #66717d;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.section h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.section-text {
+  margin: 0 0 18px;
+  color: #66717d;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-row,
+.result-row {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #cfd6dd;
+  border-radius: 10px;
+  padding: 14px 15px;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #17202a;
+}
+
+input[readonly] {
+  background: #f4f6f8;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 0 18px;
+  min-height: 48px;
+  background: #17202a;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: #e9edf1;
+  color: #17202a;
+}
+
+.message {
+  min-height: 22px;
+  margin: 14px 0 0;
+  font-size: 14px;
+}
+
+.result {
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #f4f6f8;
+}
+
+.result-item + .result-item {
+  margin-top: 18px;
+}
+
+.result-item > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.result-row a {
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+  overflow-wrap: anywhere;
+  color: #17202a;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: #e3e7eb;
+  margin: 34px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 28px 20px;
+  }
+
+  .input-row,
+  .result-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
