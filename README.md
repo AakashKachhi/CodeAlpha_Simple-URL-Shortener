@@ -1,35 +1,45 @@
 # URL Shortener
 
-A simple backend URL Shortener API built with **Node.js, Express.js, MongoDB, Mongoose, and Nanoid**.
+A simple full-stack URL Shortener application built with **Node.js, Express.js, MongoDB, Mongoose, Nanoid, HTML, CSS, and JavaScript**.
 
-The application converts long URLs into short URLs and redirects users from the generated short URL to the original URL.
+The application allows users to convert long URLs into unique short URLs and redirect users to the original URL using the generated short code.
 
 ## Features
 
-* Create a short URL from an original URL
-* Generate a unique short code for every URL
-* Store URL mappings in MongoDB
-* Redirect short URLs to their original URLs
-* Validate URLs before creating short links
-* Support both `http` and `https` URLs
-* Return appropriate HTTP status codes for invalid or missing URLs
-* Automatically store `createdAt` and `updatedAt` timestamps
-* Environment variables for configuration
-* MongoDB unique constraint for short codes
+- Create a unique short URL from a long URL
+- Generate a unique short code for every URL
+- Store URL mappings in MongoDB
+- Redirect short URLs to their original URLs
+- Open an original URL using only its short code
+- Validate URLs and allow only `http` and `https`
+- Handle invalid URLs and unavailable short codes
+- Display both the generated short URL and short code
+- Copy the short URL or short code
+- Responsive frontend interface
+- Automatic `createdAt` and `updatedAt` timestamps
+- Environment variables for configuration
+- MongoDB unique constraint for short codes
 
 ## Tech Stack
 
-* **Node.js**
-* **Express.js**
-* **MongoDB**
-* **Mongoose**
-* **Nanoid**
-* **dotenv**
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **Mongoose**
+- **Nanoid**
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **dotenv**
 
 ## Project Structure
 
 ```text
 CodeAlpha_URLShortener/
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 ├── src/
 │   ├── config/
 │   │   └── db.js
@@ -52,13 +62,13 @@ CodeAlpha_URLShortener/
 Clone the repository:
 
 ```bash
-git clone https://github.com/AakashKachhi/CodeAlpha_Simple-URL-Shortener
+git clone https://github.com/AakashKachhi/CodeAlpha_Simple-URL-Shortener.git
 ```
 
 Move into the project directory:
 
 ```bash
-cd CodeAlpha_URLShortener
+cd CodeAlpha_Simple-URL-Shortener
 ```
 
 Install dependencies:
@@ -92,7 +102,7 @@ npm run dev
 npm start
 ```
 
-The server will run on:
+The application will be available at:
 
 ```text
 http://localhost:3000
@@ -130,7 +140,7 @@ http://localhost:3000
 }
 ```
 
-### 2. Redirect to Original URL
+### 2. Redirect Using Short Code
 
 **GET**
 
@@ -144,7 +154,7 @@ Example:
 http://localhost:3000/api/urls/abc123
 ```
 
-If the short code exists, the API redirects the request to the original URL.
+If the short code exists, the server redirects the user to the original URL.
 
 If the short code does not exist:
 
@@ -156,12 +166,33 @@ If the short code does not exist:
 }
 ```
 
+## Frontend
+
+The frontend provides two main actions:
+
+### Create Short URL
+
+Enter a long URL and click **Shorten URL**.
+
+The generated result displays:
+
+- Short URL
+- Short Code
+- Copy button for the short URL
+- Copy button for the short code
+
+### Open Using Short Code
+
+Enter an existing short code and click **Go to URL**.
+
+The application uses the backend redirect endpoint to send the user to the original URL.
+
 ## URL Validation
 
 The API accepts URLs using:
 
-* `http://`
-* `https://`
+- `http://`
+- `https://`
 
 Invalid or unsupported URLs return:
 
@@ -169,14 +200,12 @@ Invalid or unsupported URLs return:
 
 ## Error Handling
 
-The API handles common errors with appropriate HTTP status codes:
-
-| Status Code | Description                    |
-| ----------- | ------------------------------ |
-| `201`       | Short URL created successfully |
-| `400`       | Invalid or missing URL         |
-| `404`       | Short code not found           |
-| `500`       | Database/server error          |
+| Status Code | Description |
+|---|---|
+| `201` | Short URL created successfully |
+| `400` | Invalid or missing URL |
+| `404` | Short code not found |
+| `500` | Database/server error |
 
 ## Database
 
@@ -184,11 +213,11 @@ MongoDB is used to store URL mappings.
 
 Each URL record contains:
 
-* `originalUrl`
-* `shortUrl`
-* `shortCode`
-* `createdAt`
-* `updatedAt`
+- `originalUrl`
+- `shortUrl`
+- `shortCode`
+- `createdAt`
+- `updatedAt`
 
 The `shortCode` field is unique to prevent duplicate short codes.
 
@@ -196,19 +225,24 @@ The `shortCode` field is unique to prevent duplicate short codes.
 
 Possible future enhancements include:
 
-* User authentication
-* URL expiration
-* Click analytics
-* Click tracking
-* Custom short codes
-* QR code generation
-* Rate limiting
-* API documentation
-* Frontend interface
-* Admin dashboard
+- User authentication
+- URL expiration
+- Click analytics
+- Click tracking
+- Custom short codes
+- QR code generation
+- Rate limiting
+- API documentation
+- Admin dashboard
 
 ## Internship Task
 
 This project was developed as part of the **CodeAlpha Backend Development Internship**.
 
 **Task:** Simple URL Shortener
+
+## GitHub
+
+Repository:
+
+https://github.com/AakashKachhi/CodeAlpha_Simple-URL-Shortener
